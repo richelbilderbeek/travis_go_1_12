@@ -3,6 +3,12 @@ dist: bionic
 cache: packages
 
 install:
+  # From https://tecadmin.net/install-go-on-ubuntu/
+  - wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+  - sudo tar -xvf go1.12.7.linux-amd64.tar.gz
+  - sudo mv go /usr/local
+  - export GOROOT=/usr/local/go
+  - export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
   # Check dead links
   - sudo apt-get install -qq npm
   - npm config set strict-ssl false
