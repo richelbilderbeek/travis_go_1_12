@@ -1,0 +1,16 @@
+language: generic
+dist: bionic
+cache: packages
+
+install:
+  # Check dead links
+  - sudo apt-get install -qq npm
+  - npm config set strict-ssl false
+  - sudo npm install -g markdown-link-check
+
+script:
+  # Show Go's version
+  - go version
+  # Check dead links
+  - rm .travis.yml
+  - ./scripts/check_dead_links
